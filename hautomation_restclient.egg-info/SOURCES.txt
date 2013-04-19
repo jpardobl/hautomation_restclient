@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+setup.py
+hautomation_restclient/__init__.py
+hautomation_restclient/cmds.py
+hautomation_restclient/manage.py
+hautomation_restclient/tests.py
+hautomation_restclient.egg-info/PKG-INFO
+hautomation_restclient.egg-info/SOURCES.txt
+hautomation_restclient.egg-info/dependency_links.txt
+hautomation_restclient.egg-info/requires.txt
+hautomation_restclient.egg-info/top_level.txt
