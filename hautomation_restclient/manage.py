@@ -45,6 +45,8 @@ def get_device(protocol, did, server_url, username, password):
 
     url = os.path.join(server_url, DEVICE_BY_ID_URL.format(**{"did": did, "protocol": protocol}))
     r = requests.get(url, headers={"USERNAME": username, "PASSWORD": password})
+    if r.status_code == 404:
+        return []
     if r.status_code != 200:
         raise RestApiException(r.json(), r.status_code)
     return r.json()
