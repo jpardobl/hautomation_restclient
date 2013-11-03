@@ -12,7 +12,7 @@ def get_protocols(server_url, username, password):
     r = requests.get(url, headers={"USERNAME": username, "PASSWORD": password}, allow_redirects=False)
 
     if r.status_code != 200:
-        raise RestApiException(r.json(), r.status_code)
+        raise RestApiException(r.text, r.status_code)
 
     return [x["name"] for x in r.json()]
 
