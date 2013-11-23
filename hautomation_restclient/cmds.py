@@ -17,7 +17,10 @@ def pl_switch(protocol, did, value, server_url, username, password):
     r = requests.put(url, data={"value": value}, headers={"USERNAME": username, "PASSWORD": password}, allow_redirects=False)
     print r.content
     if r.status_code != 302:
-        raise RestApiException(r.text, r.status_code)
+        try:
+            raise RestApiException(r.json(), r.status_code)
+        except JSONDecodeError:
+            raise RestApiException(r.text, r.status_code)
     return True
 
 
@@ -29,7 +32,10 @@ def pl_dim(protocol, did, value, server_url, username, password):
     url = os.path.join(server_url, PL_DIM_URL.format(**{"protocol": protocol, "did": did, }))
     r = requests.post(url, data={"value": value}, headers={"USERNAME": username, "PASSWORD": password}, allow_redirects=False)
     if r.status_code != 302:
-        raise RestApiException(r.text, r.status_code)
+        try:
+            raise RestApiException(r.json(), r.status_code)
+        except JSONDecodeError:
+            raise RestApiException(r.text, r.status_code)
     return True
 
 
@@ -41,7 +47,10 @@ def pl_bri(protocol, did, value, server_url, username, password):
     url = os.path.join(server_url, PL_BRI_URL.format(**{"protocol": protocol, "did": did, }))
     r = requests.post(url, data={"value": value}, headers={"USERNAME": username, "PASSWORD": password}, allow_redirects=False)
     if r.status_code != 302:
-        raise RestApiException(r.text, r.status_code)
+        try:
+            raise RestApiException(r.json(), r.status_code)
+        except JSONDecodeError:
+            raise RestApiException(r.text, r.status_code)
     return True
 
 if __name__ == "__main__":
