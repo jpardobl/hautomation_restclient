@@ -1,7 +1,7 @@
 import requests
 import os
 from hautomation_restclient import RestApiException
-
+from simplejson import JSONDecodeError
 
 PL_SWITCH_URL = "rest/cmd/pl_switch/{protocol}/{did}"
 PL_DIM_URL = "rest/cmd/pl_dim/{protocol}/{did}"
