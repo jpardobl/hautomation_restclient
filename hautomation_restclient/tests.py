@@ -4,12 +4,12 @@ from manage import *
 from cmds import *
 
 SERVER_URL = "http://raspberry:8000"
-USERNAME = "pi"
-PASSWORD = "pi"
+USERNAME = "raton"
+PASSWORD = "soportep"
 
 
 class TestClient(unittest.TestCase):
-    def test_uno(self):
+    def off_test_uno(self):
         print "testing protocol retrieval"
 
         r = get_protocols(SERVER_URL, USERNAME, PASSWORD)
@@ -41,6 +41,12 @@ class TestClient(unittest.TestCase):
         print "deleting device"
         r = del_device("X10", did, SERVER_URL, USERNAME, PASSWORD)
         self.assertTrue(r, "not deleting devices")
+
+    def test_all_lights(self, ):
+        #ret = pl_all_lights_on("X10", "A", SERVER_URL, USERNAME, PASSWORD)
+        ret = pl_all_lights_off("X10", "A", SERVER_URL, USERNAME, PASSWORD)
+
+
 
 
 def main():
