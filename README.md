@@ -1,12 +1,12 @@
 hautomation-restclient
 ==================
 
-REST client for sending home automation commands to django-hautomation
+REST client for sending home automation commands to django-hautomation REST API
 
-Quick start
------------
+This project belongs to the Home Automation Python Project, the url is: 
 
+http://blog.digitalhigh.es/home-automation-python-project/
 
-1. Install pip install -e https://github.com/jpardobl/hautomation_restclient.git#egg=hautomation_restclient
+Further documentation about this module is found at:
 
-2. import hautomatio...
+http://blog.digitalhigh.es/home-automation-python-project/hautomation_restclient/

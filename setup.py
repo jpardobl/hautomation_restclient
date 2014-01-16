@@ -12,7 +12,7 @@ setup(
     packages = ['hautomation_restclient'],
     include_package_data = True,
     license = 'BSD License',
-    description = 'Module for sending home automation commands and device management requests to django-hautomation',
+    description = 'Module for sending home automation commands and device management requests to django-hautomation REST API',
  #   long_description = README,
 #TODO set the project's home page
     url = 'http://jpardobl.com',
@@ -23,8 +23,7 @@ setup(
     ),
     test_suite='hautomation_restclient.tests.runtests',
     tests_require=("requests"),
-    classifiers = [
-        'Environment :: Home Automation',
+    classifiers = [        
         'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
@@ -34,5 +33,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Home Automation',
     ],
 )
