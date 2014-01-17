@@ -8,14 +8,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name = 'hautomation-restclient',
-    version = '0.1',
+    version = '0.2',
     packages = ['hautomation_restclient'],
     include_package_data = True,
     license = 'BSD License',
     description = 'Module for sending home automation commands and device management requests to django-hautomation REST API',
  #   long_description = README,
 #TODO set the project's home page
-    url = 'http://jpardobl.com',
+    url = 'http://blog.digitalhigh.es',
     author = 'Javier Pardo Blasco(jpardobl)',
     author_email = 'jpardo@digitalhigh.es',
     install_requires = (

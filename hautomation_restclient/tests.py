@@ -3,7 +3,7 @@ import unittest
 from manage import *
 from cmds import *
 
-SERVER_URL = "http://raspberry:8000"
+SERVER_URL = "http://localhost:8000"
 USERNAME = "raton"
 PASSWORD = "soportep"
 
