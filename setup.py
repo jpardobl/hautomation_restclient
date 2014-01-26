@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name = 'hautomation-restclient',
-    version = '0.2.1',
+    version = '0.3',
     packages = ['hautomation_restclient'],
     include_package_data = True,
     license = 'BSD License',
