@@ -20,6 +20,7 @@ setup(
     author_email = 'jpardo@digitalhigh.es',
     install_requires = (
       "requests==1.2.0",
+      "simplejson==2.6.2",
     ),
     test_suite='hautomation_restclient.tests.runtests',
     tests_require=("requests"),

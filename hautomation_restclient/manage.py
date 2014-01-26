@@ -5,6 +5,7 @@ from simplejson import JSONDecodeError
 
 
 DEVICE_URL = "rest/manage/device/"
+DEVICE_BY_PROTOCOL_URL = "rest/manage/device?protocol={protocol}"
 DEVICE_BY_ID_URL = "rest/manage/device/{protocol}/{did}"
 PROTOCOL_URL = "rest/manage/protocol/"
 
@@ -76,3 +77,16 @@ def upd_device(protocol, did, server_url, changes, username, password):
         except JSONDecodeError:
             raise RestApiException(r.text, r.status_code)
     return True
+
+
+def list_devices(protocol, server_url, username, password):
+    url = os.path.join(server_url, DEVICE_BY_PROTOCOL_URL.format(**{"protocol": protocol}))
+    r = requests.get(url, headers={"USERNAME": username, "PASSWORD": password})
+    if r.status_code == 404:
+        return []
+    if r.status_code != 200:
+        try:
+            raise RestApiException(r.json(), r.status_code)
+        except JSONDecodeError:
+            raise RestApiException(r.text, r.status_code)
+    return r.json()
