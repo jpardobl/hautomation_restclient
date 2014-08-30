@@ -5,7 +5,7 @@ from simplejson import JSONDecodeError
 
 import  logging
 try:
-    from django.conf import setttings
+    from django.conf import settings
 except:
     import settings
 

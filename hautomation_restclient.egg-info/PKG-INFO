@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: hautomation-restclient
-Version: 0.2.1
+Version: 0.3.1
 Summary: Module for sending home automation commands and device management requests to django-hautomation REST API
 Home-page: http://blog.digitalhigh.es
 Author: Javier Pardo Blasco(jpardobl)
