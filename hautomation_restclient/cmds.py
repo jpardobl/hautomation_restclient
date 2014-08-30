@@ -3,6 +3,16 @@ import os
 from hautomation_restclient import RestApiException
 from simplejson import JSONDecodeError
 
+import  logging
+try:
+    from django.conf import setttings
+except:
+    import settings
+
+
+logger = logging.getLogger("rest")
+logger.setLevel(settings.LOG_LEVEL)
+
 PL_SWITCH_URL = "rest/cmd/pl_switch/{protocol}/{did}"
 PL_DIM_URL = "rest/cmd/pl_dim/{protocol}/{did}"
 PL_BRI_URL = "rest/cmd/pl_bri/{protocol}/{did}"
@@ -40,13 +50,17 @@ def pl_switch(protocol, did, value, server_url, username, password):
     """
 
     url = os.path.join(server_url, PL_SWITCH_URL.format(**{"protocol": protocol, "did": did, }))
+    logger.debug("Contacting: %s, username: %s/%s" % (url, username, password))
     r = requests.put(url, data={"value": value}, headers={"USERNAME": username, "PASSWORD": password}, allow_redirects=False)
     #print r.content
+
     if r.status_code != 302:
+        logger.error("Unexpected response from REST API, status_code: %s" % r.status_code)
         try:
             raise RestApiException(r.json(), r.status_code)
         except JSONDecodeError:
             raise RestApiException(r.text, r.status_code)
+    logger.debug("Expected response from REST API")
     return True
 
 
